@@ -2,12 +2,14 @@ package com.ecommerce.shubkart.controllers;
 
 import com.ecommerce.shubkart.dtos.CreateProductReqDto;
 import com.ecommerce.shubkart.dtos.CreateProductResDto;
+import com.ecommerce.shubkart.dtos.GetAllProductsResDto;
+import com.ecommerce.shubkart.dtos.GetProductDto;
 import com.ecommerce.shubkart.models.Product;
 import com.ecommerce.shubkart.productService.ProductService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class ProductController {
@@ -43,8 +45,32 @@ public class ProductController {
         );
         return CreateProductResDto.fromProduct(product);
     }
+    @PutMapping("/product/{id}")
+    public boolean updateProduct(@RequestBody Product product, @PathVariable long id){
+        return productService.updateProduct(id, product);
 
-    //updateProduct
-    //replaceProduct
+    }
+
+    @DeleteMapping("/product/{id}")
+    public boolean deleteProduct(@PathVariable long id){
+        return productService.deleteProduct(id);
+    }
+
+    @GetMapping("/products")
+    public GetAllProductsResDto getAllProducts(){
+        List<Product> products = productService.getAllProducts();
+        GetAllProductsResDto response = new GetAllProductsResDto();
+
+        List<GetProductDto> getProductResDto = new ArrayList<>();
+
+        for(Product product: products){
+            getProductResDto.add(GetProductDto.from(product));
+        }
+
+        response.setProducts(getProductResDto);
+
+        return response;
+   }
+
 
 }

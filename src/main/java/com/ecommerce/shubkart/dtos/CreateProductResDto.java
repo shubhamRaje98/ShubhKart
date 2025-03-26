@@ -18,6 +18,8 @@ public class CreateProductResDto {
         responseDto.setDescription(product.getDescription());
         responseDto.setPrice(product.getPrice());
         responseDto.setImageUrl(product.getImageUrl());
+        responseDto.setCategoryName(product.getCategoryName());
+
 
         return responseDto;
     }
