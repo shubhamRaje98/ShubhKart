@@ -1,16 +1,19 @@
 package com.ecommerce.shubkart.models;
 
-import com.ecommerce.shubkart.dtos.FakeStoreProductResDto;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class Product extends FakeStoreProductResDto {
-    private long id;
+@Entity
+public class Product extends BaseModel{
     private String title;
     private String description;
     private double price;
     private String imageUrl;
-    private String categoryName;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private Category category;
 }

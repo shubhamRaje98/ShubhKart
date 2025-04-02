@@ -21,7 +21,7 @@ public class FakeStoreProductResDto {
         product.setId(response.getId());
         product.setImageUrl(response.getImage());
         product.setDescription(response.getDescription());
-        product.setCategoryName(response.getCategory());
+        //product.setCategoryName(response.getCategory());
         return product;
     }
 }

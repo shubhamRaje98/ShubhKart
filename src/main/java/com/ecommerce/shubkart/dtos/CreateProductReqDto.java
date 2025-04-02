@@ -1,5 +1,6 @@
 package com.ecommerce.shubkart.dtos;
 
+import com.ecommerce.shubkart.models.Category;
 import com.ecommerce.shubkart.models.Product;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,7 +22,9 @@ public class CreateProductReqDto {
         product.setDescription(this.description);
         product.setPrice(this.price);
         product.setImageUrl(this.imageUrl);
-        product.setCategoryName(this.categoryName);
+        Category category = new Category();
+        category.setName(this.categoryName);
+        product.setCategory(category);
 
         return product;
     }

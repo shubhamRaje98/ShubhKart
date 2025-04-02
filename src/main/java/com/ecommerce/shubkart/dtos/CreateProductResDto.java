@@ -1,5 +1,6 @@
 package com.ecommerce.shubkart.dtos;
 
+import com.ecommerce.shubkart.models.Category;
 import com.ecommerce.shubkart.models.Product;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,7 +19,8 @@ public class CreateProductResDto {
         responseDto.setDescription(product.getDescription());
         responseDto.setPrice(product.getPrice());
         responseDto.setImageUrl(product.getImageUrl());
-        responseDto.setCategoryName(product.getCategoryName());
+
+        responseDto.setCategoryName(product.getCategory().getName());
 
 
         return responseDto;

@@ -26,7 +26,7 @@ public class ProductServiceImpl implements ProductService {
         req.setDescription(product.getDescription());
         req.setPrice(product.getPrice());
         req.setImage(product.getImageUrl());
-        req.setCategory(product.getCategoryName());
+        //req.setCategory(product.getCategoryName());
 
         FakeStoreProductResDto response =  restTemplate.postForObject(
                 "https://fakestoreapi.com/products",
@@ -63,22 +63,29 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getAllProducts() {
-        FakeStoreProductResDto[] response = restTemplate.getForObject(
-                "https://fakestoreapi.com/products",
-                FakeStoreProductResDto[].class
-        );
-
-        List<FakeStoreProductResDto> responseDtoList =
-                Stream.of(response).toList();
-
-        List<Product> products = new ArrayList<>();
-
-        for(FakeStoreProductResDto fakeStoreProductResDto : responseDtoList){
-            products.add(FakeStoreProductResDto.getProduct(fakeStoreProductResDto));
-        }
-
-        return products;
+    public List<Product> getAllProducts(){
+//        FakeStoreProductResDto[] response = restTemplate.getForObject(
+//                "https://fakestoreapi.com/products",
+//                FakeStoreProductResDto[].class
+//        );
+//
+//        List<FakeStoreProductResDto> responseDtoList =
+//                Stream.of(response).toList();
+//
+//        List<Product> products = new ArrayList<>();
+//
+//        for(FakeStoreProductResDto fakeStoreProductResDto : responseDtoList){
+//            products.add(FakeStoreProductResDto.getProduct(fakeStoreProductResDto));
+//        }
+//
+//        return products;
+        throw new RuntimeException();
     }
+
+    @Override
+    public Product getSingleProduct(Long id) {
+        return null;
+    }
+
 
 }

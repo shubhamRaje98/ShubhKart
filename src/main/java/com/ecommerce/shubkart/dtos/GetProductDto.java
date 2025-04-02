@@ -16,11 +16,12 @@ public class GetProductDto {
 
     public static GetProductDto from(Product product){
         GetProductDto getProductResDto = new GetProductDto();
+        getProductResDto.setId(product.getId());
         getProductResDto.setTitle(product.getTitle());
         getProductResDto.setDescription(product.getDescription());
         getProductResDto.setPrice(product.getPrice());
         getProductResDto.setImageUrl(product.getImageUrl());
-        getProductResDto.setCategoryName(product.getCategoryName());
+        getProductResDto.setCategoryName(product.getCategory().getName());
 
         return getProductResDto;
     }
