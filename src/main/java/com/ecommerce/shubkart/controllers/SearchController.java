@@ -3,7 +3,7 @@ package com.ecommerce.shubkart.controllers;
 import com.ecommerce.shubkart.dtos.GetAllProductsResDto;
 import com.ecommerce.shubkart.dtos.GetProductDto;
 import com.ecommerce.shubkart.models.Product;
-import com.ecommerce.shubkart.productService.searchService.SearchService;
+import com.ecommerce.shubkart.services.productService.searchService.SearchService;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

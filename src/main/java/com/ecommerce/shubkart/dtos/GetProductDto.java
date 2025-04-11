@@ -13,6 +13,7 @@ public class GetProductDto {
     private double price;
     private String imageUrl;
     private String categoryName;
+    private String currency;
 
     public static GetProductDto from(Product product){
         GetProductDto getProductResDto = new GetProductDto();
@@ -22,6 +23,7 @@ public class GetProductDto {
         getProductResDto.setPrice(product.getPrice());
         getProductResDto.setImageUrl(product.getImageUrl());
         getProductResDto.setCategoryName(product.getCategory().getName());
+        getProductResDto.setCurrency(product.getCurrency());
 
         return getProductResDto;
     }

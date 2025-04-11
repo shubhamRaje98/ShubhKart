@@ -1,9 +1,8 @@
-package com.ecommerce.shubkart.productService;
+package com.ecommerce.shubkart.services.productService;
 
 import com.ecommerce.shubkart.exceptions.ProductNotFoundException;
 import com.ecommerce.shubkart.models.Category;
 import com.ecommerce.shubkart.models.Product;
-import com.ecommerce.shubkart.productService.productServiceImpl.ProductServiceImpl;
 import com.ecommerce.shubkart.repositories.CategoryRepository;
 import com.ecommerce.shubkart.repositories.ProductRepository;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
 package com.ecommerce.shubkart.models;
 
-import jakarta.persistence.Entity;
+import javax.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
 

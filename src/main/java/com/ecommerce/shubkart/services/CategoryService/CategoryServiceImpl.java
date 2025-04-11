@@ -1,4 +1,4 @@
-package com.ecommerce.shubkart.CategoryService;
+package com.ecommerce.shubkart.services.CategoryService;
 
 import com.ecommerce.shubkart.repositories.CategoryRepository;
 import org.springframework.stereotype.Service;

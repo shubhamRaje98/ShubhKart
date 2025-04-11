@@ -15,6 +15,7 @@ public class CreateProductReqDto {
     private double price;
     private String imageUrl;
     private String categoryName;
+    private String currency;
 
     public Product toProduct(){
         Product product = new Product();
@@ -22,6 +23,7 @@ public class CreateProductReqDto {
         product.setDescription(this.description);
         product.setPrice(this.price);
         product.setImageUrl(this.imageUrl);
+        product.setCurrency(this.currency);
         Category category = new Category();
         category.setName(this.categoryName);
         product.setCategory(category);

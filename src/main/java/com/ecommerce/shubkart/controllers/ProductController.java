@@ -1,14 +1,13 @@
 package com.ecommerce.shubkart.controllers;
 
-import com.ecommerce.shubkart.CategoryService.CategoryService;
+import com.ecommerce.shubkart.services.CategoryService.CategoryService;
 import com.ecommerce.shubkart.dtos.CreateProductReqDto;
 import com.ecommerce.shubkart.dtos.CreateProductResDto;
 import com.ecommerce.shubkart.dtos.GetAllProductsResDto;
 import com.ecommerce.shubkart.dtos.GetProductDto;
 import com.ecommerce.shubkart.exceptions.ProductNotFoundException;
 import com.ecommerce.shubkart.models.Product;
-import com.ecommerce.shubkart.productService.ProductService;
-import com.ecommerce.shubkart.repositories.CategoryRepository;
+import com.ecommerce.shubkart.services.productService.ProductService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
@@ -66,7 +65,6 @@ public class ProductController {
     @PutMapping("/product/{id}")
     public boolean updateProduct(@RequestBody Product product, @PathVariable long id) throws ProductNotFoundException {
         return productService.updateProduct(id, product);
-
     }
 
     @DeleteMapping("/product/{id}")

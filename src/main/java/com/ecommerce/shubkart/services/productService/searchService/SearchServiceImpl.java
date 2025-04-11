@@ -1,4 +1,4 @@
-package com.ecommerce.shubkart.productService.searchService;
+package com.ecommerce.shubkart.services.productService.searchService;
 
 import com.ecommerce.shubkart.models.Product;
 import com.ecommerce.shubkart.repositories.ProductRepository;

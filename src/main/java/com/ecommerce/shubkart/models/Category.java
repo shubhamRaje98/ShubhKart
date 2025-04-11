@@ -1,7 +1,7 @@
 package com.ecommerce.shubkart.models;
 
 import com.fasterxml.jackson.databind.ser.Serializers;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

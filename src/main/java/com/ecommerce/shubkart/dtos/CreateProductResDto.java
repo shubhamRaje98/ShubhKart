@@ -13,13 +13,14 @@ public class CreateProductResDto {
     private String description;
     private String price;
     private String imageUrl;
+    private String currency;
     public static CreateProductReqDto fromProduct(Product product){
         CreateProductReqDto responseDto = new CreateProductReqDto();
         responseDto.setTitle(product.getTitle());
         responseDto.setDescription(product.getDescription());
         responseDto.setPrice(product.getPrice());
         responseDto.setImageUrl(product.getImageUrl());
-
+        responseDto.setCurrency(product.getCurrency());
         responseDto.setCategoryName(product.getCategory().getName());
 
 
