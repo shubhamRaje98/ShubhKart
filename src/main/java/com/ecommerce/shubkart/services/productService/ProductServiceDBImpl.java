@@ -5,6 +5,7 @@ import com.ecommerce.shubkart.models.Category;
 import com.ecommerce.shubkart.models.Product;
 import com.ecommerce.shubkart.repositories.CategoryRepository;
 import com.ecommerce.shubkart.repositories.ProductRepository;
+import com.ecommerce.shubkart.services.RedisService.RedisService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,12 +13,15 @@ import java.util.Optional;
 
 @Service("dbProductService")
 public class ProductServiceDBImpl implements ProductService{
-    ProductRepository productRepo;
-    CategoryRepository categoryRepository;
+    private ProductRepository productRepo;
+    private CategoryRepository categoryRepository;
 
-    public ProductServiceDBImpl(ProductRepository productRepo, CategoryRepository categoryRepository){
+    private RedisService redisService;
+
+    public ProductServiceDBImpl(ProductRepository productRepo, CategoryRepository categoryRepository, RedisService redisService){
         this.productRepo = productRepo;
         this.categoryRepository = categoryRepository;
+        this.redisService = redisService;
     }
 
     @Override
@@ -71,6 +75,15 @@ public class ProductServiceDBImpl implements ProductService{
 
     @Override
     public Product getSingleProduct(Long id){
-        return productRepo.findById(id).get();
+        Product product = redisService.get("productID_"+id, Product.class);
+        if(product!=null){
+            return product;
+        }else{
+            Product product1 = productRepo.findById(id).get();
+            if(product1!=null){
+                redisService.set("productID_"+id, product1, 5l);
+            }
+            return product1;
+        }
     }
 }

@@ -1,11 +1,11 @@
 package com.ecommerce.shubkart.dtos;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 public class ErrorResponseDto {
-    public String status;
-    public String message;
+    private String status;
+    private String message;
 }
